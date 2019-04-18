@@ -24,8 +24,7 @@
         todoList:[
           {checkbox: false, do: '', deleteFlg: false}
         ],
-        todos:'',
-
+        todos:''
       }
     },
     methods: {
@@ -34,9 +33,6 @@
         this.todos = "";
       }
     },
-    watch:{
-
-    }
   }
 </script>
 
