@@ -27,7 +27,7 @@
     },
     methods: {
       addTodo: function(){
-        this.todoList.unshift({checkbox: false, do: this.todos, deleteFlg: false});
+        this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
         this.todos = "";
       }
     }
