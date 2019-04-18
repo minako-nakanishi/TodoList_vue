@@ -8,8 +8,8 @@
         <td><button v-show="todo.do !=''" v-on:click="delTodo(index)">X</button></td>
       </tr>
     </table>
-    <input id="submit" type="text" v-model="todos" />
-    <button id="add" v-on:click="addTodo()">add</button>
+    <input id="add" type="text" v-model="todos" />
+    <button id="submit" v-on:click="addTodo()">add</button>
   </div>
 </template>
 
@@ -48,12 +48,15 @@
   color: #2c3e50;
 }
 
-#submit{
+#add{
   background-color: white;
+  height: 20px;
+  width: 200px;
 }
 
-#add{
+#submit{
   background-color: orange;
+  height: 26px;
 }
 
 .done{
