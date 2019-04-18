@@ -29,8 +29,12 @@
     },
     methods: {
       addTodo: function(){
-        this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
-        this.todos = "";
+        if(!this.todos){
+          alert('値を入力してください。')
+        }else{
+          this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
+          this.todos = "";
+        }
       },
       delTodo: function(index){
         this.todoList[index].deleteFlg = true;
