@@ -1,12 +1,15 @@
 <template>
   <div class="list">
     <h1>{{title}}</h1>
-    <p v-for="todo in todoList">
-      <input type="checkbox" v-show="todo.do !=''">{{todo.do}}
-      <button v-show="todo.do !=''">削除</button>
-    </p>
+    <table align="center">
+      <tr v-for="(todo,index) in todoList" :key="index">
+        <td><input type="checkbox" v-show="todo.do !=''"></td>
+        <td>{{todo.do}}</td>
+        <td><button v-show="todo.do !=''">X</button></td>
+      </tr>
+    </table>
     <input id="submit" type="text" v-model="todos" />
-    <button v-on:click="addTodo()">Click</button>
+    <button v-on:click="addTodo()">add</button>
   </div>
 </template>
 
@@ -27,7 +30,7 @@
     },
     methods: {
       addTodo: function(){
-        this.todoList.unshift({checkbox: false, do: this.todos, deleteFlg: false});
+        this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
         this.todos = "";
       }
     }
@@ -35,5 +38,10 @@
 </script>
 
 <style>
-
+#app{
+  font-family: 'Avenir', Helvetia, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  color: #2c3e50;
+}
 </style>
