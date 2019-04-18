@@ -3,13 +3,13 @@
     <h1>{{title}}</h1>
     <table align="center">
       <tr v-for="(todo,index) in todoList" :key="index">
-        <td><input type="checkbox" v-show="todo.do !=''"></td>
-        <td>{{todo.do}}</td>
+        <td><input type="checkbox" v-show="todo.do !=''" v-model="todo.checkbox"></td>
+        <td class="" v-bind:class="{done : todo.checkbox}">{{todo.do}}</td>
         <td><button v-show="todo.do !=''">X</button></td>
       </tr>
     </table>
     <input id="submit" type="text" v-model="todos" />
-    <button v-on:click="addTodo()">add</button>
+    <button id="add" v-on:click="addTodo()">add</button>
   </div>
 </template>
 
@@ -33,6 +33,9 @@
         this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
         this.todos = "";
       }
+    },
+    watch:{
+
     }
   }
 </script>
@@ -44,4 +47,17 @@
   text-align: center;
   color: #2c3e50;
 }
+
+#submit{
+  background-color: white;
+}
+
+#add{
+  background-color: orange;
+}
+
+.done{
+  text-decoration: line-through;
+}
+
 </style>
