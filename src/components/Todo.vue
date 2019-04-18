@@ -1,9 +1,12 @@
 <template>
   <div class="list">
     <h1>{{title}}</h1>
-    <p>{{todoList}}</p>
-    <input type="text" v-model="todos" />
-    <button>Click</button>
+    <p v-for="todo in todoList">
+      <input type="checkbox" v-show="todo.do !=''">{{todo.do}}
+      <button v-show="todo.do !=''">削除</button>
+    </p>
+    <input id="submit" type="text" v-model="todos" />
+    <button v-on:click="addTodo()">Click</button>
   </div>
 </template>
 
@@ -15,8 +18,17 @@
     },
     data: function(){
       return{
-        todoList: '',
-        todos:''
+        todoList:[
+          {checkbox: false, do: '', deleteFlg: false}
+        ],
+        todos:'',
+
+      }
+    },
+    methods: {
+      addTodo: function(){
+        this.todoList.unshift({checkbox: false, do: this.todos, deleteFlg: false});
+        this.todos = "";
       }
     }
   }
