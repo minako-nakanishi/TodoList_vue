@@ -1,12 +1,12 @@
 <template>
   <div class="list">
     <h1>{{title}}</h1>
-    <p v-for="todo in todoList">
+    <p v-for="(todo,index) in todoList" :key="index">
       <input type="checkbox" v-show="todo.do !=''">{{todo.do}}
-      <button v-show="todo.do !=''">削除</button>
+      <button v-show="todo.do !=''">X�</button>
     </p>
     <input id="submit" type="text" v-model="todos" />
-    <button v-on:click="addTodo()">Click</button>
+    <button v-on:click="addTodo()">add</button>
   </div>
 </template>
 
