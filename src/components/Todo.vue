@@ -5,7 +5,7 @@
       <tr v-for="(todo,index) in todoList" :key="index">
         <td><input type="checkbox" v-show="todo.do !=''" v-model="todo.checkbox"></td>
         <td class="" v-bind:class="{done : todo.checkbox}">{{todo.do}}</td>
-        <td><button v-show="todo.do !=''">X</button></td>
+        <td><button v-show="todo.do !=''" v-on:click="delTodo(index)">X</button></td>
       </tr>
     </table>
     <input id="submit" type="text" v-model="todos" />
@@ -24,19 +24,19 @@
         todoList:[
           {checkbox: false, do: '', deleteFlg: false}
         ],
-        todos:'',
-
+        todos:''
       }
     },
     methods: {
       addTodo: function(){
         this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
         this.todos = "";
+      },
+      delTodo: function(index){
+        this.todoList[index].deleteFlg = true;
+        this.todoList.splice(index,1);
       }
     },
-    watch:{
-
-    }
   }
 </script>
 
