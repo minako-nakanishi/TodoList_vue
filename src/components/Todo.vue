@@ -67,4 +67,8 @@
   text-decoration: line-through;
 }
 
+td{
+  text-align: left;
+}
+
 </style>
