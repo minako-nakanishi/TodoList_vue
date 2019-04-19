@@ -8,7 +8,7 @@
         <td><button v-show="todo.do !=''" v-on:click="delTodo(index)">X</button></td>
       </tr>
     </table>
-    <input id="add" type="text" v-model="todos" />
+    <input id="add" type="text" v-model="todos" maxlength="50" />
     <button id="submit" v-on:click="addTodo()">add</button>
   </div>
 </template>
