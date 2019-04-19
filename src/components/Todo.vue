@@ -29,7 +29,8 @@
     },
     methods: {
       addTodo: function(){
-        if(!this.todos){
+        var todos = this.todos.trim();
+        if(todos == ""){
           alert('値を入力してください。')
         }else{
           this.todoList.push({checkbox: false, do: this.todos, deleteFlg: false});
